@@ -16,8 +16,12 @@ public class Prueba {
     public static void main(String[] args) {
         Cliente c;
         c=new Cliente();
-        c.empresa="Google";
-        System.out.println(c);
+        //c.empresa="Google";
+        c.setEmpresa("          ");
+        System.out.println(c.getEmpresa());
+        c.setEmpresa("     a     ");
+        System.out.println(c.getEmpresa());
+        //System.out.println(c);
     }
     
 }
