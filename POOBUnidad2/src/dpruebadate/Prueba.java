@@ -29,6 +29,13 @@ public class Prueba {
             System.out.println("no hay descuento");
         }
         System.out.println(fecha2);
+        //puntoA+puntoB
+        int meses=fecha2.getMonthValue()-1;
+        fecha2=fecha2.minusMonths(meses);
+        String cadena="texto";
+        cadena=cadena.toUpperCase();
+        System.out.println(cadena);
+        System.out.println(fecha2);
         
     }
 }
