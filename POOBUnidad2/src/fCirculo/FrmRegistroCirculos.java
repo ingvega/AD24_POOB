@@ -4,6 +4,7 @@
  */
 package fCirculo;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JOptionPane;
@@ -13,13 +14,25 @@ import javax.swing.JOptionPane;
  * @author paveg
  */
 public class FrmRegistroCirculos extends javax.swing.JFrame {
-
+    private Circulo[] circulos=new Circulo[20];
+    private int posicion;
     /**
      * Creates new form FrmRegistroCirculos
      */
     public FrmRegistroCirculos() {
         initComponents();
         setTitle("Pantalla de creación de círculos");
+        /*PRUEBA SE VA A ELIMINAR*/
+        Circulo c1=new Circulo(300,Color.BLUE);
+        Circulo c2=new Circulo(100,new Punto(50,50),Color.BLUE);
+        circulos[0]=c1;
+        circulos[1]=c2;
+        posicion=2;
+        PnlLienzo lienzo=new PnlLienzo(circulos);
+        lienzo.setBounds(0, 0, 
+                (int)(this.getWidth()*.75), 
+                this.getHeight());
+        this.add(lienzo);
     }
 
     /**
@@ -73,12 +86,6 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
                         .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(173, 173, 173))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(clrColor, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCrear)
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(chkIndicarUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -89,7 +96,13 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spnY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCrear)
+                        .addGap(97, 97, 97))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(clrColor, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,14 +156,16 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
             c=new Circulo(Integer.parseInt(txtRadio.getText()),
                     clrColor.getColor());
         }
-        System.out.println(c);
-        System.out.println(c.datosCirculo());
-        
+//        System.out.println(c);
+//        System.out.println(c.datosCirculo());
+        circulos[posicion]=c;
+        posicion++;
+        this.repaint();
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    public void paint(Graphics g){
-        
-    }
+//    public void paint(Graphics g){
+//        g.drawOval(0,0, 50, 50);
+//    }
     /**
      * @param args the command line arguments
      */
