@@ -46,8 +46,10 @@ public class PnlLienzo extends javax.swing.JPanel {
     public void paint(Graphics g){
         for (int i = 0; i < circulos.length; i++) {
             if(circulos[i]!=null){
-                g.drawOval(circulos[i].centro.getX(),
-                                    circulos[i].centro.getY(), 50, 50);
+                g.setColor(circulos[i].getColor());
+                g.fillOval(circulos[i].centro.getX()-circulos[i].getRadio(),
+                        circulos[i].centro.getY()-circulos[i].getRadio(),
+                        2*circulos[i].getRadio(),2*circulos[i].getRadio());
             }
         }
         

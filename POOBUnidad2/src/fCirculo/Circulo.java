@@ -32,6 +32,9 @@ public class Circulo {
         this.centro = centro;
     }
 
+    public int getRadio(){
+        return radio;
+    }
     public Color getColor() {
         return color;
     }
