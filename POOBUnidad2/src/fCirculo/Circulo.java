@@ -43,6 +43,27 @@ public class Circulo {
         this.color = color;
     }
     
+    public void aumentarRadio() {
+        radio++;
+    }
+
+    public void aumentarRadio(int cantidad) {
+        if (radio - cantidad >= 1) {
+            radio += cantidad;
+        }else{
+            System.err.println("El radio no puede tener valores negativos o cero");
+        }
+    }
+    
+    public void mueveX(int x){
+        int nuevaX=centro.getX()+x;
+        centro.setX(nuevaX);
+    }
+    
+    public void mueveY(int y){
+        centro.setY(centro.getY()+y);
+    }
+    
     public String datosCirculo(){
         return "Circulo con posicion: ( "
                 + centro.getX() + " , "
