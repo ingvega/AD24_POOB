@@ -19,6 +19,14 @@ public class POOBUnidad3 {
         telefono="1";
         telefono="sdfghjk";
         System.out.println(telefono.matches("[0-9]{10}"));
+        telefono="   A           B C    D              ";
+        System.out.println("-"+telefono.replaceAll(" +", " ")+"-");
+        Alumno a=new Alumno();
+        a.setNombre("Luis");
+        a.setApellidos("Lopez");
+        //a.nombre="Luis";
+        
+        
     }
     
 }
