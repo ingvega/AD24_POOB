@@ -69,6 +69,26 @@ public class Alumno extends Persona {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
+    //Sobrecarga
+//    public String toString(String separador){
+//    
+//    }
     
+    //Sobreescritura (reemplazar el comportamiento heredado)
+    //Misma firma (puede cambiar el modificador de acceso)
+    @Override
+    public String toString(){
+        return "NoControl: " + noControl + 
+                "\nNombre: " + getNombre() + " " + getApellidos() +
+                "\nCarrera: " + carrera;
+    }
     
+    @Override
+    public boolean equals(Object o){
+        Alumno otroAlumno=(Alumno)o;
+        if(this.noControl.equalsIgnoreCase(otroAlumno.getNoControl())){
+            return true;
+        }
+        return false;
+    }
 }
