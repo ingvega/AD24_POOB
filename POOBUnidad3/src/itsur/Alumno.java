@@ -85,10 +85,19 @@ public class Alumno extends Persona {
     
     @Override
     public boolean equals(Object o){
+        if(o==null) return false;
+        
+        //Es un alumno o algun derivado de alumno
+        //if(!(o instanceof Alumno)) return false;
+        //Revisa que el tipo de dato de o sea el mismo tipo
+        //que de this (Alumno)
+        if(!this.getClass().equals(o.getClass())) return false;
         Alumno otroAlumno=(Alumno)o;
-        if(this.noControl.equalsIgnoreCase(otroAlumno.getNoControl())){
-            return true;
-        }
-        return false;
+        return this.noControl.equalsIgnoreCase(otroAlumno.getNoControl());
+//        if(this.noControl.equalsIgnoreCase(otroAlumno.getNoControl())){
+//            return true;
+//        }else{
+//            return false;
+//        }
     }
 }

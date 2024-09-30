@@ -4,7 +4,6 @@
  */
 package itsur;
 
-import java.util.Objects;
 
 /**
  *
@@ -52,6 +51,21 @@ public class POOBUnidad3 {
         } else {
             System.out.println("Diferentes");
         }
+        Object o=a;
+        Persona p=new Alumno();
+        
+        Persona p1=new Persona();
+        System.out.println(a.getClass());
+        System.out.println(o.getClass());
+        System.out.println(p.getClass());
+        System.out.println("Hola".getClass());
+        
+        System.out.println(a instanceof Alumno); //True
+        System.out.println(a instanceof Persona); //True
+        System.out.println(o instanceof Persona); //True
+        System.out.println(p instanceof Alumno); //True
+        System.out.println(p1 instanceof Alumno);
+        
         
     }
 
