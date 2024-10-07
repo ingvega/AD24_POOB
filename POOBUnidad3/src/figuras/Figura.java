@@ -38,4 +38,11 @@ public class Figura {
         puntoReferencia.setX(x+ajusteX);
         puntoReferencia.setY(y+ajusteY);
     }
+
+    @Override
+    public String toString() {
+        return " en la posicion ();
+    }
+    
+    
 }
