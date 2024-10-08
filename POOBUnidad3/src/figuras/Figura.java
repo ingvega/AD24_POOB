@@ -41,7 +41,7 @@ public class Figura {
 
     @Override
     public String toString() {
-        return " en la posicion ();
+        return " en la posicion " + puntoReferencia;
     }
     
     

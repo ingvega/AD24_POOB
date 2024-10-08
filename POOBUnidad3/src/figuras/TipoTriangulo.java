@@ -4,12 +4,13 @@
  */
 package figuras;
 
+
 /**
  *
  * @author paveg
  */
-public class TipoTriangulo {
-    public static int RECTANGULO=1;
-    public static int ISOSCELES=2;
-    public static int EQUILATERO=3;
+public enum TipoTriangulo {
+    RECTANGULO,
+    ISOSCELES,
+    EQUILATERO;    
 }

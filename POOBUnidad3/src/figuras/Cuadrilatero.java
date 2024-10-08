@@ -51,5 +51,10 @@ public class Cuadrilatero extends Figura {
         }
     }
     
+     @Override
+    public String toString() {
+        return "Cuadrilatero con base=" + base + " altura=" +altura 
+                + super.toString();
+    }
     
 }
