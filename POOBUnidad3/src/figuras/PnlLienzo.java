@@ -11,13 +11,15 @@ import java.awt.Graphics;
  * @author paveg
  */
 public class PnlLienzo extends javax.swing.JPanel {
-    private Circulo[] circulos;
+
+    private Figura[] figuras;
+
     /**
      * Creates new form PnlLienzo
      */
-    public PnlLienzo(Circulo[] circulos) {
+    public PnlLienzo(Figura[] figuras) {
         initComponents();
-        this.circulos=circulos;
+        this.figuras = figuras;
     }
 
     /**
@@ -43,17 +45,19 @@ public class PnlLienzo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void paint(Graphics g){
-        for (int i = 0; i < circulos.length; i++) {
-            if(circulos[i]!=null){
-                
-                g.setColor(circulos[i].getColor());
-                g.fillOval(circulos[i].centro.getX()-circulos[i].getRadio(),
-                        circulos[i].centro.getY()-circulos[i].getRadio(),
-                        2*circulos[i].getRadio(),2*circulos[i].getRadio());
+    public void paint(Graphics g) {
+        for (int i = 0; i < figuras.length; i++) {
+            if (figuras[i] != null) {
+                g.setColor(figuras[i].getColor());
+                if (figuras[i].getClass().equals(Circulo.class)) {
+                    Circulo c=(Circulo)figuras[i];
+                    g.fillOval(c.getPuntoReferencia().getX() - c.getRadio(),
+                            c.getPuntoReferencia().getY() - c.getRadio(),
+                            2 * c.getRadio(), 2 * c.getRadio());
+                }
             }
         }
-        
+
     }
 //    public static void main(String[] args) {
 //        new PnlLienzo().setVisible(true);

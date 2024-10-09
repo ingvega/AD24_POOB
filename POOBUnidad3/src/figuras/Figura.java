@@ -38,6 +38,10 @@ public class Figura {
         puntoReferencia.setX(x+ajusteX);
         puntoReferencia.setY(y+ajusteY);
     }
+    
+    public double calcularArea(){
+        return 0;
+    }
 
     @Override
     public String toString() {

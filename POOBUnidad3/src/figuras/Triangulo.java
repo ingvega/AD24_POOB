@@ -12,9 +12,9 @@ public class Triangulo extends Figura {
 
     private int base;
     private int altura;
-    private int tipo = TipoTriangulo.ISOSCELES;
+    private TipoTriangulo tipo = TipoTriangulo.ISOSCELES;
 
-    public Triangulo(int base, int altura, int tipo) {
+    public Triangulo(int base, int altura, TipoTriangulo tipo) {
         this.base = base;
         this.altura = altura;
         this.tipo = tipo;
@@ -36,6 +36,16 @@ public class Triangulo extends Figura {
         this.altura = altura;
     }
 
+    public TipoTriangulo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoTriangulo tipo) {
+        this.tipo = tipo;
+    }
+
+    
+    
     public void aumentar(int cantidad) {
         if (cantidad > 0) {
             base += cantidad;
@@ -54,13 +64,16 @@ public class Triangulo extends Figura {
         }
     }
 
+    public double calcularArea(){
+        return base*altura/2.0;
+    }
     
     @Override
     public String toString() {
         String tipo="Equilátero";
-        if(this.tipo==1){
+        if(this.tipo==TipoTriangulo.RECTANGULO){
             tipo="Rectángulo";
-        }else if(this.tipo==2){
+        }else if(this.tipo==TipoTriangulo.ISOSCELES){
             tipo="Isósceles";
         }
         return "Triangulo con base=" + base + " altura=" +altura +

@@ -27,15 +27,20 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
         Circulo c2=new Circulo(100,new Punto(100,0),Color.RED);
         figuras[0]=c1;
         figuras[1]=c2;
-        posicion=2;
+        figuras[2]=new Cuadrilatero(60, 60);
+        figuras[3]=new Triangulo(100, 70,TipoTriangulo.EQUILATERO);
+        posicion=4;
         PnlLienzo lienzo=new PnlLienzo(figuras);
         lienzo.setBounds(0, 0, 
                 (int)(this.getWidth()*.75), 
                 this.getHeight());
         this.add(lienzo);
         
-        cboCirculos.addItem(c1.datosCirculo());
-        cboCirculos.addItem(c2.toString());
+        for (int i = 0; i < figuras.length; i++) {
+            if(figuras[i]==null) break;
+            cboCirculos.addItem(figuras[i].toString());
+        }
+        
     }
 
     /**
@@ -212,7 +217,7 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
 //        System.out.println(c.datosCirculo());
         figuras[posicion]=c;
         posicion++;
-        cboCirculos.addItem(c.datosCirculo());
+        cboCirculos.addItem(c.toString());
         this.repaint();
     }//GEN-LAST:event_btnCrearActionPerformed
 
@@ -224,14 +229,14 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
     }//GEN-LAST:event_sldRadioStateChanged
 
     private void cboCirculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCirculosActionPerformed
-        int indice=cboCirculos.getSelectedIndex();
-        sldRadio.setValue(figuras[indice].getRadio());
+//        int indice=cboCirculos.getSelectedIndex();
+//        sldRadio.setValue(figuras[indice].getRadio());
     }//GEN-LAST:event_cboCirculosActionPerformed
 
     private void btnAsignarRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarRadioActionPerformed
-        int indice = cboCirculos.getSelectedIndex();
-        figuras[indice].aumentarRadio(sldRadio.getValue() - figuras[indice].getRadio());
-        repaint();
+//        int indice = cboCirculos.getSelectedIndex();
+//        figuras[indice].aumentarRadio(sldRadio.getValue() - figuras[indice].getRadio());
+//        repaint();
         
     }//GEN-LAST:event_btnAsignarRadioActionPerformed
 
