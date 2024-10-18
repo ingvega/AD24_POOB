@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itsur;
+package itsur.especifico;
 
+import itsur.general.Persona;
 import java.time.LocalDate;
 
 /**
  *
  * @author paveg
  */
-public class Alumno extends Persona {
+public final class Alumno extends Persona {
     private String noControl;
     private String carrera;
     private short creditosAcumulados;
@@ -19,7 +20,7 @@ public class Alumno extends Persona {
     private String estatus;
 
     public String getNombreCompleto(){
-        return getApellidos() + " " + getNombre();
+        return apellidos + " " + getNombre();
     }
     
     public String getNoControl() {

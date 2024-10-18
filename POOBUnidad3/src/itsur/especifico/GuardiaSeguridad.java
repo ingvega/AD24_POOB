@@ -2,22 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itsur;
+package itsur.especifico;
 
 /**
  *
  * @author paveg
  */
-public class Intendente extends Empleado {
-    private String turno;
-
-    public String getTurno() {
-        return turno;
-    }
-
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-    
-    
+public class GuardiaSeguridad extends Empleado{
+    //No podemos heredar de una clase "Sellada", a menos
+    //que esté en la lista de clases permitidas para heredar
 }

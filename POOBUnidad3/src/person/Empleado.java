@@ -8,7 +8,9 @@ package person;
  *
  * @author Milan
  */
-public class Empleado extends Persona{
+public sealed class Empleado 
+        extends Persona 
+        permits Administrativo, Intendente, Docente {
     
     private double sueldoHora;
     private int numHoras;

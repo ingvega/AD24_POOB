@@ -4,6 +4,10 @@
  */
 package itsur;
 
+import itsur.especifico.Administrativo;
+import itsur.especifico.Alumno;
+import itsur.general.Persona;
+
 /**
  *
  * @author paveg

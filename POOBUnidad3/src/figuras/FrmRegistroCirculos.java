@@ -14,8 +14,10 @@ import javax.swing.JOptionPane;
  * @author paveg
  */
 public class FrmRegistroCirculos extends javax.swing.JFrame {
-    private Figura[] figuras=new Figura[20];
+
+    private Figura[] figuras = new Figura[20];
     private int posicion;
+
     /**
      * Creates new form FrmRegistroCirculos
      */
@@ -23,24 +25,26 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
         initComponents();
         setTitle("Pantalla de creación de círculos");
         /*PRUEBA SE VA A ELIMINAR*/
-        Circulo c1=new Circulo(300,Color.BLUE);
-        Circulo c2=new Circulo(100,new Punto(100,0),Color.RED);
-        figuras[0]=c1;
-        figuras[1]=c2;
-        figuras[2]=new Cuadrilatero(60, 60);
-        figuras[3]=new Triangulo(100, 70,TipoTriangulo.EQUILATERO);
-        posicion=4;
-        PnlLienzo lienzo=new PnlLienzo(figuras);
-        lienzo.setBounds(0, 0, 
-                (int)(this.getWidth()*.75), 
+        Circulo c1 = new Circulo(300, Color.BLUE);
+        Circulo c2 = new Circulo(100, new Punto(100, 0), Color.RED);
+        figuras[0] = c1;
+        figuras[1] = c2;
+        figuras[2] = new Cuadrilatero(60, 60);
+        figuras[3] = new Triangulo(100, 70, TipoTriangulo.EQUILATERO);
+        posicion = 4;
+        PnlLienzo lienzo = new PnlLienzo(figuras);
+        lienzo.setBounds(0, 0,
+                (int) (this.getWidth() * .75),
                 this.getHeight());
         this.add(lienzo);
-        
+
         for (int i = 0; i < figuras.length; i++) {
-            if(figuras[i]==null) break;
+            if (figuras[i] == null) {
+                break;
+            }
             cboCirculos.addItem(figuras[i].toString());
         }
-        
+
     }
 
     /**
@@ -52,7 +56,7 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblRadio = new javax.swing.JLabel();
         txtRadio = new javax.swing.JTextField();
         chkIndicarUbicacion = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
@@ -65,10 +69,16 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
         sldRadio = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
         btnAsignarRadio = new javax.swing.JButton();
+        txtBase = new javax.swing.JTextField();
+        lblBase = new javax.swing.JLabel();
+        txtAltura = new javax.swing.JTextField();
+        lblAltura = new javax.swing.JLabel();
+        cboTipo = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Radio");
+        lblRadio.setText("Radio");
 
         txtRadio.setText("1");
 
@@ -111,53 +121,93 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
             }
         });
 
+        txtBase.setText("1");
+
+        lblBase.setText("Base");
+
+        txtAltura.setText("1");
+
+        lblAltura.setText("Altura");
+
+        cboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Círculo", "Cuadrilátero", "Triángulo Rectángulo", "Triángulo Isósceles" }));
+        cboTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboTipoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Tipo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(847, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 925, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(173, 173, 173))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCrear)
-                        .addGap(97, 97, 97))
+                        .addGap(91, 91, 91))
+                    .addComponent(cboCirculos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clrColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(chkIndicarUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(spnX, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spnY, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cboCirculos, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clrColor, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAsignarRadio)
-                                    .addComponent(sldRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAsignarRadio)
+                            .addComponent(sldRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(chkIndicarUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(spnX, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(spnY, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblBase, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtBase, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRadio)
+                    .addComponent(txtRadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBase)
+                    .addComponent(txtBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAltura)
+                    .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkIndicarUbicacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,42 +230,45 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        //System.out.println("Presionó el boton");
-        //null centro de la pantalla de la PC
-        //this centro de este frame
-        //JOptionPane.showMessageDialog(this,"Presionó el botón","Titulo del mensaje",JOptionPane.ERROR_MESSAGE);
-        //Tomar todos los valores de los controles
-        //Integer  int
-        //Double double
-        //Float float
-        //Character char
-        Circulo c;
-        
-        
-        int x=Integer.parseInt(spnX.getValue()+"");
-        int y=Integer.parseInt(spnY.getValue().toString());
+        Figura figura;
+        switch (cboTipo.getSelectedItem().toString()) {
+            case "Círculo":
+                figura = new Circulo(Integer.parseInt(txtRadio.getText()));
+                break;
+            case "Cuadrilátero":
+                figura = new Cuadrilatero(Integer.parseInt(txtBase.getText()),
+                        Integer.parseInt(txtAltura.getText()));
+                break;
+            case "Triángulo Rectángulo":
+                figura = new Triangulo(Integer.parseInt(txtBase.getText()),
+                        Integer.parseInt(txtAltura.getText()), TipoTriangulo.RECTANGULO);
+                break;
+            default:
+                figura = new Triangulo(Integer.parseInt(txtBase.getText()),
+                        Integer.parseInt(txtAltura.getText()), TipoTriangulo.ISOSCELES);
+        }
+
         //String y=x+"";
         //JOptionPane.showMessageDialog(this, spnX.getValue());
-        if(chkIndicarUbicacion.isSelected()){
-            Punto ubicacion=new Punto(x,y);
-            c=new Circulo(Integer.parseInt(txtRadio.getText()),
-                                    ubicacion,
-                                    clrColor.getColor()
-                                );
-        }else{
-            c=new Circulo(Integer.parseInt(txtRadio.getText()),
-                    clrColor.getColor());
-        }
+        if (chkIndicarUbicacion.isSelected()) {
+            int x = Integer.parseInt(spnX.getValue() + "");
+            int y = Integer.parseInt(spnY.getValue().toString());
+
+            Punto ubicacion = new Punto(x, y);
+            figura.setPuntoReferencia(ubicacion);
+        } 
+        figura.setColor(clrColor.getColor());
+        
 //        System.out.println(c);
 //        System.out.println(c.datosCirculo());
-        figuras[posicion]=c;
+        figuras[posicion] = c;
         posicion++;
         cboCirculos.addItem(c.toString());
         this.repaint();
@@ -237,8 +290,12 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
 //        int indice = cboCirculos.getSelectedIndex();
 //        figuras[indice].aumentarRadio(sldRadio.getValue() - figuras[indice].getRadio());
 //        repaint();
-        
+
     }//GEN-LAST:event_btnAsignarRadioActionPerformed
+
+    private void cboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboTipoActionPerformed
 
 //    public void paint(Graphics g){
 //        g.drawOval(0,0, 50, 50);
@@ -247,32 +304,8 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroCirculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroCirculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroCirculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistroCirculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        //new FrmRegistroCirculos().setVisible(true);
-        FrmRegistroCirculos pantalla= new FrmRegistroCirculos();
+        
+        FrmRegistroCirculos pantalla = new FrmRegistroCirculos();
         pantalla.setVisible(true);
 
     }
@@ -281,15 +314,21 @@ public class FrmRegistroCirculos extends javax.swing.JFrame {
     private javax.swing.JButton btnAsignarRadio;
     private javax.swing.JButton btnCrear;
     private javax.swing.JComboBox<String> cboCirculos;
+    private javax.swing.JComboBox<String> cboTipo;
     private javax.swing.JCheckBox chkIndicarUbicacion;
     private javax.swing.JColorChooser clrColor;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel lblAltura;
+    private javax.swing.JLabel lblBase;
+    private javax.swing.JLabel lblRadio;
     private javax.swing.JSlider sldRadio;
     private javax.swing.JSpinner spnX;
     private javax.swing.JSpinner spnY;
+    private javax.swing.JTextField txtAltura;
+    private javax.swing.JTextField txtBase;
     private javax.swing.JTextField txtRadio;
     // End of variables declaration//GEN-END:variables
 }

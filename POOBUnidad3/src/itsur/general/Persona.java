@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itsur;
+package itsur.general;
 
+import itsur.EstadoCivil;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -14,16 +15,20 @@ import java.time.Month;
 public class Persona {
 
     private String nombre;
-    private String apellidos;
+    protected String apellidos;
     private String correo;
     private String telefono;
     private String curp;
-    private int estadoCivil = EstadoCivil.SOLTERO;
+    private EstadoCivil estadoCivil;// = EstadoCivil.SOLTERO;
     private String direccion;
     private int edad;
     private LocalDate fechaNacimiento;
     private char sexo;
 
+    public Persona(){
+        System.out.println("3");
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -129,11 +134,11 @@ public class Persona {
         }
     }
 
-    public int getEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(int estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 

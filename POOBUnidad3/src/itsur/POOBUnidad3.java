@@ -4,6 +4,9 @@
  */
 package itsur;
 
+import itsur.especifico.Alumno;
+import itsur.general.Persona;
+
 
 /**
  *
@@ -15,6 +18,7 @@ public class POOBUnidad3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         String telefono = "1234567890";
         System.out.println(telefono.matches("[0-9]{10}"));
         telefono = "1";

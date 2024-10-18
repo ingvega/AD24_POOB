@@ -14,6 +14,11 @@ public class Circulo extends Figura {
 
     private int radio = 1;
 
+    
+    public Circulo(int radio) {
+        this(radio, null);
+    }
+    
     public Circulo(int radio, Color color) {
         this(radio, new Punto(0, 0), color);
     }

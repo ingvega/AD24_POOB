@@ -4,6 +4,7 @@
  */
 package itsur;
 
+import itsur.especifico.Alumno;
 import java.util.ArrayList;
 
 /**

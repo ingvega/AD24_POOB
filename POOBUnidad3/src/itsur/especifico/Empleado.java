@@ -2,15 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package itsur;
+package itsur.especifico;
 
+import itsur.especifico.Administrativo;
+import itsur.especifico.Docente;
+import itsur.especifico.Intendente;
+import itsur.general.Persona;
 import java.time.LocalDate;
 
 /**
  *
  * @author paveg
  */
-public class Empleado extends Persona{
+public sealed class Empleado 
+        extends Persona
+        permits Administrativo, Docente, Intendente
+{
     private int clave;
     private LocalDate fechaContratacion;
     private float sueldoXHora;
